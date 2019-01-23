@@ -7,6 +7,10 @@
         <div class="col-sm-8">
             <h2>
                 Listado De Usuarios
+                <form action="{{ route('search') }}" method="post">
+                    <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+                    <input type="text" placeholder="Buscar.." name="query">
+                </form>
                 <a href="{{ route('products.create') }}" class="btn arturo btn-primary  pull-right">Nuevo Usuario</a>
             </h2>
             @include('products.fragment.info')
@@ -64,5 +68,7 @@
     .arturo{
         transform: translate(10px)
     }
+
+    
     </style>
 @endsection
