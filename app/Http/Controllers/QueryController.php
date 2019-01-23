@@ -3,20 +3,24 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class QueryController extends Controller
 {
     public function search(Request $request)
     {
-        return $request->all();
-        // Gets the query string from our form submission 
-        $query = Request::input('search');
-        // Returns an array of articles that have the query string located somewhere within 
-        // our articles titles. Paginates them so we can break up lots of search results.
-        $articles = DB::table('articles')->where('title', 'LIKE', '%' . $query . '%')->paginate(10);
+        //return $request->all();
+        ///en esta variable colocas lo q tenia el input o caja de busqueda
+        $query = $request->search;
+        
+        // aqui pones en la variable el resultado de bucar 
+        //en la tabla en un campo especifico, comparandolo con la caja de busqueda
+        $ususarios = DB::table('products')
+            ->where('id_number', 'LIKE', '%' . $query . '%')
+            ->paginate(10);
             
-        // returns a view and passes the view the list of articles and the original query.
-        return view('query.search', compact('articles', 'query'));
+        // retornas la vista con un array vacio o lleno si obtienes resuktados
+        return view('query.search', compact('ususarios', 'query'));
     }
 
 }
