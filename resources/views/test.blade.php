@@ -11,7 +11,6 @@
 <link type="text/css" rel="stylesheet" href="{{ asset('css/navbar.css') }}">
 <link type="text/css" rel="stylesheet" href="{{ asset('css/panels.css') }}">
 <link type="text/css" rel="stylesheet" href="{{ asset('css/icons.css') }}">
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>SENESCYT - Secretaría Nacional de Educación Superior,
 		Ciencia, Tecnología e Innovación</title>
@@ -53,40 +52,59 @@
                         
                       
 
-			
-                        <div>
-                                <div class="tutilo-consulta">
-                                    <h3 class="titulo">Registro De Certificado En Proceso</h3>
-                                </div>
-
-                        <div>
-
-                            <div class="row">
-                                <div class="col-md-6">
-                                        @if (count($ususarios) === 0)
-                                        No se encontro Nada
-                                    @elseif (count($ususarios) >= 1)
-                                    
-                                        @foreach($ususarios as $usuario)
-                                           <strong>Nombre :</strong> {{ $usuario->name }}
-                                           <br>
-                                           <strong>Sexo</strong> {{ $usuario->sex }}
-                                           <br>
-                                           
-                                        @endforeach
-                                    @endif
-                                </div>
-                                <div class="col-md-6">
-
-                                </div>
-                            </div>
+			<div>
+				<div class="">
+					<h3 class="titulo">CONSULTA DE TÍTULOS REGISTRADOS</h3>
+				</div>
+				<br><div id="" class="ui-panelgrid ui-widget companyHeaderGrid">
+					<div id="" class="ui-panelgrid-content ui-widget-content ui-grid ui-grid-responsive">
+						<div class="ui-grid-row">
+							<div class="ui-panelgrid-cell ui-grid-col-6">
+                                    <strong class="arena" >*Apellido*</strong>
+        
+                                    <form class="fabio" action="{{ route('search') }}" method="post">
+                                        <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+                                        <input type="text" placeholder="Buscar..." name="query">
+                                    </form>
+                                 <br>
                             
+                                
+                                    <strong class="arena" >*Ingresa Tu Numero de Cedula*</strong>
+                                    
+                                    <form class="fabio" action="{{ route('search') }}" method="post">
+                                        <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+                                        <input type="text" placeholder="Ingresa tu N° De Cedula" name="query">
+                                    </form>
+                                 
+                                    <strong class="mapa" >*Presiona La tecla Enter Para Buscar*</strong>
+                            
+								
+						<div class="moi msg-amarillo">
+							<h4>ATENCIÓN</h4>
+							<p>La SENESCYT emitirá certificados impresos únicamente
+								cuando sean requeridos para uso en el extranjero o para fines
+								judiciales. El título emitido por cualquier Universidad o
+								Instituto de Educación Superior existente en el Ecuador no
+								requerirá validación alguna, por parte del CES o la SENESCYT.</p>
+							<span>(Reglamento General de Aplicación a la Ley Orgánica
+								de Educación Superior, Art. 19)</span>
 
-    </div>
- 
+						</div>
+						<div class="moi msg-amarillo">
+							<h4>ATENCIÓN</h4>
+							<p>El reconocimiento/registro del título no habilita al
+								ejercicio de las profesiones reguladas por leyes específicas, y
+								de manera especial al ejercicio de las profesiones que pongan en
+								riesgo de modo directo la vida, salud y seguridad ciudadana
+								conforme el artículo 104 de la Ley Orgánica de Educación
+								Superior.</p>
+							<span>Resolución RPC-SO-16-No.256-2016</span>
+						
+				
+				<br>
+				
 				</main>
 				<footer> 
-                    <p>Si estas en este sistema Es porque tu Certificado esta en Proceso y en Espera a Aprobarse</p>
 					
 					<img src=" images/ama_la_vida.jpg" alt="" title="">
 				</footer>
@@ -95,31 +113,6 @@
 	</div>
 <div id="textarea_simulator" style="position: absolute; top: 0px; left: 0px; visibility: hidden;"></div><div class="ui-dialog-docking-zone"></div>
 <style>
-    .row {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  margin-right: -15px;
-  margin-left: -15px;
-}
-
-.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
-.col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
-.col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
-.col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
-.col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
-.col-xl-auto {
-  position: relative;
-  width: 100%;
-  padding-right: 15px;
-  padding-left: 15px;
-}
-.col-md-6 {
-    -ms-flex: 0 0 50%;
-    flex: 0 0 50%;
-    max-width: 50%;
-  }
     .titulo{
         transform: translate(250px)
     }
@@ -156,21 +149,3 @@
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-                   @if (count($ususarios) === 0)
-                        No se encontro Nada
-                    @elseif (count($ususarios) >= 1)
-                    
-                        @foreach($ususarios as $usuario)
-                           <strong>Nombre :</strong> {{ $usuario->name }}
-                            {{ $usuario->sex }}
-                        @endforeach
-                    @endif
