@@ -86,7 +86,7 @@
                                                         <td role="gridcell" class="ui-panelgrid-cell">
                                                                 <form class="" action="{{ route('search') }}" method="post">
                                                                         <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
-                                                                        <input type="text" placeholder="Ingresa N° de Cedula" name="query">
+                                                                        <input type="text" placeholder="Ingresa N° de Cedula" name="id_number">
                                                                     </form>                                                        </td>
                                                     </tr>
                                                     <tr class="ui-widget-content" role="row">

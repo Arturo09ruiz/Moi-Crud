@@ -50,10 +50,6 @@
 						<div class="ui-dialog-content ui-widget-content" style="height: auto;"><img id="j_idt14" src="#" alt=""> 
                         <!-- &lt;img src="/consulta-titulos-web/resources/images/loader.gif" /&gt;--></div></div>
     
-                        
-                      
-
-			
                         <div>
                                 <div class="tutilo-consulta">
                                     <h3 class="titulo">Registro De Certificado En Proceso</h3>
@@ -68,7 +64,7 @@
                                     @elseif (count($ususarios) >= 1)
                                     
                                         @foreach($ususarios as $usuario)
-                                           <strong>Nombre :</strong> {{ $usuario->name }}
+                                           <p>- </p><strong>Nombre :</strong> {{ $usuario->name }}
                                            <br>
                                            <strong>Sexo</strong> {{ $usuario->sex }}
                                            <br>
